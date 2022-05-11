@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -15,14 +16,16 @@ func main() {
 	fmt.Print("Enter your number: ")
 	//use reader to read the string. Hit enter i.e. "\n" (new line) to specify the end of string user wants to enter
 	text, _ := reader.ReadString('\n')
-
-	//use strconv package to convert the int present in text (of type string) to int type
-	number, _ := strconv.ParseInt(text, 0, 64)
+	//there is extra \n in the end of string. Need to trim extra \n and then convert the remaining string to int
+	input := strings.TrimSuffix(text, "\n")
+	fmt.Printf("Dataype of %v (input variable) is %T \n", input, input)
+	//use strconv package to convert the int present in input (of datatype string) to int datatype
+	number, _ := strconv.Atoi(input)
 	myNumber := square(number)
 	fmt.Printf("Square of %v is %v \n", number, myNumber)
 
 }
 
-func square(n int64) int64 {
+func square(n int) int {
 	return n * n
 }
