@@ -18,6 +18,7 @@ func main() {
 	text, _ := reader.ReadString('\n')
 	//there is extra \n in the end of string. Need to trim extra \n and then convert the remaining string to int
 	input := strings.TrimSuffix(text, "\n")
+	fmt.Printf("input hello %v hello", input)
 	fmt.Printf("Dataype of %v (input variable) is %T \n", input, input)
 	//use strconv package to convert the int present in input (of datatype string) to int datatype
 	number, _ := strconv.Atoi(input)
